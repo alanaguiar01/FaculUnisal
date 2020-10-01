@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="author" content="Alan Martins">
+    <meta name="keywords" content="aula ono">
+    <title>Tudo sobre Som</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+
+crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+  </head>
+  <body style="  margin: 0;">
+    <div class="titulo-principal">
+      <p> O que preciso saber para montar um som automotivo? </p>
+    </div>
+    <div class="container">
+      <div class="titulo-div">
+        <h1 class="titulo">Litragem para caixa de Som</h1>
+      </div>
+      <div class="img"> <img src="./imagem-caixa.jpg"> </div>
+      <div class="box-escolha">
+        <div>
+          <h1> modo Escuro? </h1>
+        </div>
+        <input id="modo-escuro" name="modo-escuro" type="checkbox"> <label>Ativar</label>
+      </div>
+      <div class="box-escolha">
+        <div>
+          <h1> Qual caixa? </h1>
+        </div>
+        <input checked="checked" name="qual-calculo" value="caixa" type="radio">
+        <label>Caixa</label> <input name="qual-calculo" value="trap" type="radio">
+        <label>Trapezoidal</label> </div>
+      <div class="som-form-content">
+        <form action="" method="get" class="calculo-de-dimensoes">
+          <div class="col">
+            <div class="input"> <label>Altura em cm</label> <input name="" id="altura"
+
+                type="text"> </div>
+            <div class="input"> <label>Profundidade em cm</label> <input name=""
+
+                id="profundidade" type="text"> </div>
+          </div>
+          <div class="col">
+            <div class="input"> <label>Largura em cm</label> <input name="" id="largura">
+            </div>
+            <div class="input"> <label>Espessura em cm</label> <input name=""
+
+                id="espessura" type="text"> </div>
+          </div>
+          <div class="input"> <label>Volume em litros</label> <input name="" id="volume"
+
+              type="text"> </div>
+          <div class="input button-div"> <input name="" value="Calcular" class="button"
+
+id="calcular" type="button"> </div>
+        </form>
+      </div>
+    </div>
+    <script>
+    </script>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
+     
+      
+      .black-mode{
+      	background-color: black;
+        transition: all .8s
+      }
+      
+      .black-mode .titulo-principal::before{
+      	display: none !important;
+      }
+      
+      .black-mode *{
+        color: white !important;
+        transition: all .8s
+	      }
+      
+      
+      .black-mode .button{
+        background: yellow !important;
+        transition: all .8s
+	      }
+      
+      
+      
+      
+      
+      
+      h1, input, .button, .titulo-principal{
+      font-family: 'Bangers', cursive;
+      }
+      
+      .img{
+      	width: 100%;
+        text-align: center;
+      }
+      
+      .box-escolha{
+      	margin-bottom: 35px
+      }
+      
+      
+      .container{
+      	margin-left: 15px;
+        margin-right: 15px;
+      }
+      .titulo-principal{
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 150px;
+          background-color: black;
+          color: yellow;
+          font-size: 40px;
+          z-index: -1;
+          position: relative;
+      }
+      .titulo-principal::before{
+      	content: '';
+        width: 100%;
+        height: 85px;
+        position: absolute;
+        background: white;
+        transform: rotate(2deg);
+        animation: animate 5s;
+        animation-fill-mode: forwards;
+
+          
+      }
+      html{
+        overflow-x: hidden
+      }
+      
+     .titulo{
+     		border: 2px dashed black;
+        font-style: italic;
+        border-radius: 30px;
+        padding: 7px;
+        font-size: 40px;
+        background-color: yellow;
+        box-shadow: 5px 15px 14px 1px grey;
+        text-shadow: 7px 13px 8px grey;
+       font-family: 'Bangers', cursive;
+       text-align: center;
+      }
+      @keyframes animate{
+        from {
+        	bottom: -47px
+        }
+        
+        to {
+        	bottom: -35px
+        }
+        
+        
+      }
+      .som-form-content{
+      	display: block;
+      }
+      form .input{
+      	width: 100%;
+        padding-bottom: 25px;
+      }
+      
+       .som-form-content input{
+      	width: 95%;
+      }
+      
+      .col{
+        display: flex;
+      }
+      
+      .button{
+         border: 2px dashed black;
+    border-radius: 30px;
+    font-size: 30px;
+    font-weight: 900;
+    padding: 7px;
+    box-shadow: 5px 15px 14px 1px grey;
+    text-shadow: 7px 13px 8px grey;
+        transition: all .5s;
+      }
+      .button-div{
+      	width: 100%;
+        text-align: center;
+      }
+      .button:hover{
+      	background: black;
+        color: yellow;
+        border: 1px solid gray;
+        transition: all .5s;
+        text-shadow: none;
+        box-shadow: none;
+      }
+      
+      input{
+      	padding: 10px;
+        border-radius: 100px;
+        border: 1px solid gray
+      }
+      
+      
+      
+      
+      
+      
+    
+    </style>
+    <script>
+
+   $(document).ready(function(){
+        $('input[type="checkbox"]').click(function(){
+            if($(this).prop("checked") == true){
+                $('body').toggleClass('black-mode')
+            }else{
+             $('body').removeClass('black-mode')
+            }
+        });
+    });
+  
+   
+      
+      
+      
+      
+   
+      
+$("#calcular").click(function(){
+	var a = $("#altura").val();
+	var p = $("#profundidade").val();
+	var l = $("#largura").val();
+	var e = $("#espessura").val();
+	var v = $("#volume").val();
+	
+	var i=0;
+	var NaN=false;
+	
+	if(e=="")
+	{
+     Swal.fire(
+        'Obrigatório!',
+        'É obrigatório informar a espessura',
+        'error'
+      )
+		return false;
+	}
+	
+	$(".calculo-de-dimensoes input[type='text']").each(function(){
+		if($(this).val().trim() =="")
+			i++;
+		if(isNaN($(this).val()))
+			NaN=true;
+	})
+	if(i>1)
+		{
+       Swal.fire(
+        'Obrigatório!',
+        'Deixe somente um campo em branco para saber qual você deseja calcular',
+        'error'
+      )
+			return false;
+		}
+	else if(NaN==true)
+	{
+    
+     Swal.fire(
+        'Obrigatório!',
+        'Informe somente valores numéricos',
+        'error'
+      )
+   
+		return false;
+	}
+
+	
+	
+	if(v=="")
+	{
+		v = ((a - (2 * e)) * (l - (2 * e)) * (p - (2 * e))) / 1000;
+		v=v.toFixed(4);
+		$(".calculo-de-dimensoes input[type='text']").css("color","#");
+		$("#volume").css('color','#60b503');
+		$("#volume").val(v);
+   Swal.fire(
+        'Resultado!',
+        'O volume é '+ v,
+        'success'
+      )
+	}
+	else if(a=="")
+	{
+		a = ((v * 1000) / ((l - (2 * e)) * (p - (2 * e)))) + (2 * e);
+		a=a.toFixed(4);
+		$(".calculo-de-dimensoes input[type='text']").css("color","#000");
+		$("#altura").css('color','#60b503');
+		$("#altura").val(a);
+     Swal.fire(
+        'Resultado!',
+        'O altura é '+ a,
+        'success'
+      )
+	}
+	else if(l=="")
+	{
+		l = ((v * 1000) / ((a - (2 * e)) * (p - (2 * e)))) + (2 * e);
+		l=l.toFixed(4);
+		$(".calculo-de-dimensoes input[type='text']").css("color","#000");
+		$("#largura").css('color','#60b503');
+		$("#largura").val(l);
+     Swal.fire(
+        'Resultado!',
+        'O largura é '+ l,
+        'success'
+      )
+	}
+	else if(p=="")
+	{
+		p = ((v * 1000) / ((l - (2 * e)) * (a - (2 * e)))) + (2 * e);
+		p=p.toFixed(4);
+		$(".calculo-de-dimensoes input[type='text']").css("color","#000");
+		$("#profundidade").css('color','#60b503');
+		$("#profundidade").val(p);
+     Swal.fire(
+        'Resultado!',
+        'O profundidade é '+ p,
+        'success'
+      )
+	}	
+	
+});
+
+
+
+
+
+
+
+
+/*
+      
+      
+      
+$(document).ready(function(){  
+
+	
+	if(campo=="altura"){
+		$(".calculo-de-dimensoes input[type='text']").css("color","#000");
+		$(altura).css("color","#ff0303");
+	}
+	if(campo=="largura"){
+		$(".calculo-de-dimensoes input[type='text']").css("color","#000");
+		$("#espessura").css('color','#ff0303');
+	}	
+	if(campo=="p_menor"){
+		$(".calculo-de-dimensoes input[type='text']").css("color","#000");
+		$("#p_menor").css("color","#ff0303");
+	}	
+	if(campo=="p_maior"){
+		$(".calculo-de-dimensoes input[type='text']").css("color","#000");
+		$("#p_maior").css("color","#ff0303");
+	}	
+	if(campo=="volume"){
+		$(".calculo-de-dimensoes input[type='text']").css("color","#000");
+		$("#volume").css('color','#ff0303');
+	}	
+})
+
+$("#calcular_trap").click(function(){
+	var a = $("#altura").val();
+	var l = $("#largura").val();
+	var p_menor = $("#profundidade_menor").val();
+	var p_maior = $("#profundidade_maior").val();
+	var e =  $("#espessura").val();
+	var v = $("#volume").val();
+	var PI= 3.1416;
+	
+	var i=0;
+	var NaN=false;
+	
+	var a_2 = $("#altura").val();
+	var l_2 = $("#largura").val();
+	var p_menor_2 = $("#profundidade_menor").val();
+	var p_maior_2 = $("#profundidade_maior").val();
+	var e_2 =  $("#espessura").val();
+	var v_2 = $("#volume").val();
+	
+	var email = $("#email").val();
+	
+	if(e=="")
+	{
+     Swal.fire(
+        'Obrigatório!',
+        'É obrigatório informar a espessura',
+        'error'
+      )
+		return false;
+	}
+	
+	$(".calculo-de-dimensoes input[type='text']").each(function(){
+		if($(this).val()=="" && $(this).attr("id")!="email")
+			i++;
+		if(isNaN($(this).val()) && $(this).attr("id")!="email")
+			NaN=true;
+	})
+	if(i>1)
+		{
+      
+       Swal.fire(
+        'Obrigatório!',
+        'Deixe somente um campo em branco',
+        'error'
+      )      
+			return false;
+		}
+	else if(NaN==true)
+	{
+		alert("Informe somente valores numéricos");
+		return false;
+	}
+	else if(i==0)
+		{
+       Swal.fire(
+        'Obrigatório!',
+        'Deixe o campo que deseja calcular em branco',
+        'error'
+      )  
+			return false;
+		}
+		
+	if(v=="")
+	{
+		v = ((a - (2 * e)) * (l - (2 * e)) * (((p_menor - (2 * e)) + (p_maior - (2 * e))) / 2)) / 1000;	
+		v=v.toFixed(2).replace(".",",");	
+		$(".calculo-de-dimensoes input[type='text']").css("color","#000");
+		$("#volume").css("color","#ff0303");
+		$("#volume").val(v);
+		 
+    Swal.fire(
+        'Resultado',
+        'O volume é ' + v,
+        'success'
+      )  
+		
+	}
+	else if(a=="")
+	{
+		a = ((v * 1000) / ((l - (2 * e)) * (((p_menor - (2 * e)) + (p_maior - (2 * e))) / 2))) + (2 * e);	
+		a=a.toFixed(2).replace(".",",");			
+		$(".calculo-de-dimensoes input[type='text']").css("color","#000");
+	  $("#altura").css("color","#ff0303");
+		$("#altura").val(a);
+    
+     Swal.fire(
+        'Resultado',
+        'O altura é ' + a,
+        'success'
+      )  
+		
+	}
+	else if(l=="")
+	{
+		l = ((v * 1000) / ((a - (2 * e)) * (((p_menor - (2 * e)) + (p_maior - (2 * e))) / 2))) + (2 * e);
+		l=l.toFixed(2).replace(".",",");
+		$(".calculo-de-dimensoes input[type='text']").css("color","#000");
+		$("#largura").css("color","#ff0303");
+		$("#largura").val(l);
+    
+      Swal.fire(
+        'Resultado',
+        'O largura é ' + l,
+        'success'
+      )  
+		
+	}
+	else if(p_menor=="")
+	{
+		p_menor = ((v * 1000) / (((a - (2 * e)) * (l - (2 * e))) / 2)) + ((4 * e) - p_maior);
+		p_menor=p_menor.toFixed(2).replace(".",",");
+		$(".calculo-de-dimensoes input[type='text']").css("color","#000");
+		$("#profundidade_menor").css("color","#ff0303");
+		$("#profundidade_menor").val(p_menor);
+    
+      Swal.fire(
+        'Resultado',
+        'O profundidade menor é ' + p_menor,
+        'success'
+      )  
+		
+	}
+	else if(p_maior=="")
+	{
+		p_maior = ((v * 1000) / (((a - (2 * e)) * (l - (2 * e))) / 2)) + ((4 * e) - p_menor);
+		p_maior=p_maior.toFixed(2).replace(".",",");
+		$(".calculo-de-dimensoes input[type='text']").css("color","#000");
+		$("#profundidade_maior").css("color","#ff0303");
+		$("#profundidade_maior").val(p_maior);
+    
+     Swal.fire(
+        'Resultado',
+        'O profundidade maior é ' + p_maior,
+        'success'
+      )  
+		
+	}
+	
+
+
+})
+
+*/
+
+
+
+
+</script>
+  </body>
+</html>
